@@ -1,8 +1,8 @@
 # Worked Time Calc
-Very simple app for calculating worked time based on hourly rate
+Very simple web app for calculating worked time based on hourly rate
 
 ## Features
-Features? It's created just for fun :)<br>
+Features? It was created just for fun :)<br>
 But it's based on AngularJS, so will be useful as good example for learning
 
 ## Demo
