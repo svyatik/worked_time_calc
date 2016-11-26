@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Work Timer Calculator</title>
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <div class="container wrapper" ng-app="workedCalc" ng-controller="calcCtrl" ng-init="rate = 0">
+    <div class="row">
+      <div class="col-sm-5">
+        <h3>Worked time calculator</h3>
+        <p class="subtitle">Simple calc your worked hours</p>
+
+        <div class="form-group price_hours">
+          <label for="comment">1h = $</label>
+          <input type="number" class="form-control" id="usr" ng-model="rate">
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Hours</th>
+              <th>Minutes</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="x in records">
+              <td>{{$index+1}}</td>
+              <td><input type="number" value="{{x[0]}}" ng-model="records[$index][0]" min="0" max="59"></td>
+              <td><input type="number" value="{{x[1]}}" ng-model="records[$index][1]" min="0" max="59"></td>
+              <td><button type="button" class="btn btn-link btn-remove" ng-click="removeCol($index)"><i class="glyphicon glyphicon-remove"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button type="button" class="btn btn btn-success pull-right" ng-click="addCol()">Add</button>
+        <button type="button" class="btn btn btn-default pull-right button-clear" ng-click="clearAll()">Clear</button>
+
+        <h4>Total:</h4>
+        <p style="margin-bottom: 0">Time: {{getTime().h}}h {{getTime().h}}m</p>
+        <p>Money: ${{getMoney()}}</p>
+
+        <hr>
+
+        <div class="bottom">
+          <p class="text-line">View on <a href="https://github.com/svyatik/work_calc" target="_blank">GitHub</a></p>
+          <p class="text-line text-right">Powered by <a href="https://angularjs.org" target="_blank">AngularJS</a></p>
+
+          <p>Copyright © by <a href="http://indelio.com.ua" target="_blank">Svyat</a></p>
+        </div> <!-- ./bottom -->
+
+      </div> <!-- ./col-sm-5 -->
+    </div> <!-- ./row -->
+  </div> <!-- ./container wrapper -->
+</body>
+</html>

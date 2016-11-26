@@ -1,0 +1,22 @@
+{
+  "name": "Work Calc",
+  "homepage": "https://github.com/svyatik/work_calc",
+  "authors": [
+    "Svyatoslav <barsic.plus@gmail.com>"
+  ],
+  "description": "Simple work time calc",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.9",
+    "bootstrap": "^3.3.7"
+  }
+}

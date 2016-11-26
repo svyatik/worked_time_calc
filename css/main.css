@@ -1,0 +1,46 @@
+/* Subtitle style */
+.wrapper .subtitle {
+  margin-bottom: 15px;
+}
+
+/* Price Rate input style */
+.price_hours input {
+  height: 30px;
+  width: 60px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* Main Table */
+.table {
+  margin-bottom: 0;
+}
+
+/* Table Inputs */
+.table input {
+  border: none;
+  outline: none;
+}
+.table input:focus {
+  background-color: #ecf0f1;
+}
+
+/* Table button remove */
+ .table .btn-remove {
+  color: #e74c3c;
+}
+.table .btn-remove:hover {
+  color: #c0392b;
+}
+
+/* Button clear all table rows*/
+.button-clear {
+  margin-right: 10px;
+}
+
+/* Footer text */
+.bottom .text-line {
+  display: inline-block;
+  width: 49.5%;
+  margin-bottom: 0;
+}
