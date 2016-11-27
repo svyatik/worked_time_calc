@@ -34,7 +34,8 @@
 }
 
 /* Button clear all table rows*/
-.button-clear {
+.button-clear,
+.button-save {
   margin-right: 10px;
 }
 
@@ -43,4 +44,17 @@
   display: inline-block;
   width: 49.5%;
   margin-bottom: 0;
+}
+
+/* invalid style for input */
+input.ng-invalid {
+  color: #e74c3c;
+  border-color: #e74c3c;
+  border-bottom: 1px solid;
+  font-weight: bold;
+}
+
+/* Clear class for floats */
+.clear {
+  clear: both;
 }

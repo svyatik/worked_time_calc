@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <title>Work Timer Calculator</title>
 
@@ -20,7 +22,7 @@
 
         <div class="form-group price_hours">
           <label for="comment">1h = $</label>
-          <input type="number" class="form-control" id="usr" ng-model="rate" ng-change="changeRate()">
+          <input type="number" class="form-control" id="usr" ng-model="rate" min="0" max="999" ng-change="changeRate()">
         </div>
 
         <table class="table">
@@ -44,6 +46,7 @@
 
         <button type="button" class="btn btn btn-success pull-right" ng-click="addCol()">Add</button>
         <button type="button" class="btn btn btn-default pull-right button-clear" ng-click="clearAll()">Clear</button>
+        <button type="button" class="btn btn btn-default pull-right button-save" ng-click="saveToFile()">Save as .TXT</button>
 
         <h4>Total:</h4>
         <p style="margin-bottom: 0">Time: {{getTime().h}}h {{getTime().m}}m</p>
