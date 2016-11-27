@@ -12,7 +12,7 @@
   <script src="js/script.js"></script>
 </head>
 <body>
-  <div class="container wrapper" ng-app="workedCalc" ng-controller="calcCtrl" ng-init="rate = 0">
+  <div class="container wrapper" ng-app="workedCalc" ng-controller="calcCtrl">
     <div class="row">
       <div class="col-sm-5">
         <h3>Worked time calculator</h3>
@@ -20,7 +20,7 @@
 
         <div class="form-group price_hours">
           <label for="comment">1h = $</label>
-          <input type="number" class="form-control" id="usr" ng-model="rate">
+          <input type="number" class="form-control" id="usr" ng-model="rate" ng-change="changeRate()">
         </div>
 
         <table class="table">
@@ -35,8 +35,8 @@
           <tbody>
             <tr ng-repeat="x in records">
               <td>{{$index+1}}</td>
-              <td><input type="number" value="{{x[0]}}" ng-model="records[$index][0]" min="0" max="59"></td>
-              <td><input type="number" value="{{x[1]}}" ng-model="records[$index][1]" min="0" max="59"></td>
+              <td><input type="number" value="{{x[0]}}" ng-model="records[$index][0]" min="0" max="59" ng-change="changeValues()"></td>
+              <td><input type="number" value="{{x[1]}}" ng-model="records[$index][1]" min="0" max="59" ng-change="changeValues()"></td>
               <td><button type="button" class="btn btn-link btn-remove" ng-click="removeCol($index)"><i class="glyphicon glyphicon-remove"></i></button></td>
             </tr>
           </tbody>
@@ -46,7 +46,7 @@
         <button type="button" class="btn btn btn-default pull-right button-clear" ng-click="clearAll()">Clear</button>
 
         <h4>Total:</h4>
-        <p style="margin-bottom: 0">Time: {{getTime().h}}h {{getTime().h}}m</p>
+        <p style="margin-bottom: 0">Time: {{getTime().h}}h {{getTime().m}}m</p>
         <p>Money: ${{getMoney()}}</p>
 
         <hr>

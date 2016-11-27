@@ -1,6 +1,17 @@
 var app = angular.module("workedCalc", []);
-app.controller("calcCtrl", function($scope) {
+app.controller("calcCtrl", function($scope) { 
   $scope.records = [[0, 0]];
+   // localStorage.setItem("records", $scope.records);
+
+  if(localStorage.getItem("rate") != null)
+    $scope.rate = parseInt(localStorage.getItem("rate"));
+  else
+    $scope.rate = 0;
+
+  if(localStorage.getItem("records") != null)
+    $scope.records = JSON.parse(localStorage.getItem("records"));
+  else
+    $scope.records = [[0, 0]];
 
   $scope.removeCol = function(index) {
     $scope.records.splice(index, 1);
@@ -9,15 +20,26 @@ app.controller("calcCtrl", function($scope) {
       $scope.records = [[0, 0]];
   }
 
+  $scope.changeRate = function() {
+    localStorage.setItem("rate", $scope.rate);
+  }
+
+  $scope.changeValues = function() {
+    localStorage.setItem("records", JSON.stringify($scope.records));
+  }
+
   $scope.addCol = function() {
     $scope.records.push([0, 0]);
+    $scope.changeValues();
   }
 
   $scope.clearAll = function() {
     if($scope.records.length > 1) {
-      var conf = confirm('Are you shore?');
-      if(conf)
+      var conf = confirm('Are you sure?');
+      if(conf) {
         $scope.records = [[0, 0]];
+        $scope.changeValues();
+      }
     }
   }
 
@@ -36,7 +58,6 @@ app.controller("calcCtrl", function($scope) {
     h += parseInt(m/60);
     m = m%60;
 
-    // return h + 'h ' + m + 'm';
     return { h: h, m: m }
   }
 
@@ -45,7 +66,6 @@ app.controller("calcCtrl", function($scope) {
 
     var money = time.h * $scope.rate;
 
-    // var cent_per_minute = 9 / 60;
     money += time.m * ($scope.rate / 60);
 
     return Math.round(money * 100) / 100;
