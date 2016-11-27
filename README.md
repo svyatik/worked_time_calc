@@ -6,7 +6,7 @@ Features? It was created just for fun :)<br>
 But it's based on AngularJS, so will be useful as a good example for learning
 
 ## Demo
-Play with here: [Demo](https://svyatik.github.io/work_calc/)
+Play with here: [Demo](https://svyatik.github.io/worked_time_calc/)
 
 ## Versions
 ### 0.2 Current
